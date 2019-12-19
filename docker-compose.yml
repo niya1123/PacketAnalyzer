@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+
+    pa:
+        build: .
+        ports:
+            - 4000:4000
+        container_name: pa
+        volumes: 
+            - .:/packet_analyzer
+        tty: true
+        stdin_open: true
