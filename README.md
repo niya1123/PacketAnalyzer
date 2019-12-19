@@ -19,7 +19,7 @@ docker exec -it pa /bin/bash
 # After container connection...
 cd packet_analyzer
 mix deps.get
-cd assets && npminstall
+cd assets && npm install
 mix phx.server
 ```
 Next, connect [http://localhost:4000](http://localhost:4000) .
