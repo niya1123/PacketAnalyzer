@@ -17,10 +17,9 @@ cd PacketAnalyzer
 docker-compose up -d --build
 docker exec -it pa /bin/bash
 # After container connection...
-cd packet_analyzer/assets
-npm install
-node node_modules/webpack.js --mode development
-cd ../
+cd packet_analyzer
+mix deps.get
+cd assets && npminstall
 mix phx.server
 ```
 Next, connect [http://localhost:4000](http://localhost:4000) .
