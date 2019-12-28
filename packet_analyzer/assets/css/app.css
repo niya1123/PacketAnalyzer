@@ -11,5 +11,7 @@
 }
 
 td{
+    width: auto;
     text-align: center;
+    white-space: nowrap;
 }

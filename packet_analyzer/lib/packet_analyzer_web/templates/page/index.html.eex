@@ -11,7 +11,7 @@
   入力を確認してください
 <% else %>
 <div class="result">
-  <table border="1">
+  <table border="1" width="100%">
     <tr>
       <td colspan="4">&larr;32bit&rarr;</td>
     </tr>
@@ -25,7 +25,8 @@
     
     <tr>
       <td><%= PacketAnalyzer.version(analyze) %></td>
-      <td><%= PacketAnalyzer.header(analyze) %></td>
+      <% header = PacketAnalyzer.header(analyze) %>
+      <td><%= header %></td>
       <td><%= PacketAnalyzer.service(analyze) %></td>
       <td><%= PacketAnalyzer.packet_length(analyze) %></td>
     </tr>
@@ -73,7 +74,9 @@
     </tr>
 
     <tr>
-      <td colspan="4"><%= PacketAnalyzer.option(analyze) %></td>
+      <% header = String.to_integer(header) %>
+      <% n = header - 4 %>
+      <td colspan="4"><%= PacketAnalyzer.option(analyze,n) %></td>
     </tr>
 
     <tr>
@@ -81,7 +84,7 @@
     </tr>
 
     <tr>
-      <td colspan="4"><%= PacketAnalyzer.data(analyze) %></td>
+      <td colspan="4"><%= PacketAnalyzer.data(analyze,n) %></td>
     </tr>
 
   </table>
