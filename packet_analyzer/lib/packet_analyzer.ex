@@ -46,5 +46,54 @@ defmodule PacketAnalyzer do
     |> Integer.to_string(16)
     |> String.slice 8,4
   end
+
+  def flag(analyze) do
+    analyze
+    |> Integer.to_string(16)
+    |> String.slice 12,4
+  end
+
+  def ttl(analyze) do
+    analyze
+    |> Integer.to_string(16)
+    |> String.slice 16,2
+  end
+
+  def procotol(analyze) do
+    analyze
+    |> Integer.to_string(16)
+    |> String.slice 18,2
+  end
+
+  def header_check(analyze) do
+    analyze
+    |> Integer.to_string(16)
+    |> String.slice 20,4
+  end
+
+  def source_ip_addr(analyze) do
+    analyze
+    |> Integer.to_string(16)
+    |> String.slice 24,8
+  end
+
+  def destination_ip_addr(analyze) do
+    analyze
+    |> Integer.to_string(16)
+    |> String.slice 32,8
+  end
+
+  def option(analyze) do
+    analyze
+    |> Integer.to_string(16)
+    |> String.slice 40,8
+  end
+
+  def data(analyze) do
+    analyze
+    |> Integer.to_string(16)
+    |> String.slice 48..-1
+  end
+  
   
 end

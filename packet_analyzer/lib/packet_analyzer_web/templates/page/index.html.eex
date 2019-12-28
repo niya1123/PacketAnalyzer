@@ -37,7 +37,7 @@
 
     <tr>
       <td colspan="3"><%=  PacketAnalyzer.identifier(analyze) %></td>
-      <td><%= analyze %></td>
+      <td><%= PacketAnalyzer.flag(analyze) %></td>
     </tr>
 
     <tr>
@@ -47,9 +47,9 @@
     </tr>
 
     <tr>
-      <td colspan="2"><%= analyze %></td>
-      <td><%= analyze %></td>
-      <td><%= analyze %></td>
+      <td colspan="2"><%= PacketAnalyzer.ttl(analyze) %></td>
+      <td><%= PacketAnalyzer.procotol(analyze) %></td>
+      <td><%= PacketAnalyzer.header_check(analyze) %></td>
     </tr>
 
     <tr>
@@ -57,7 +57,7 @@
     </tr>
 
     <tr>
-      <td colspan="4"><%= analyze %></td>
+      <td colspan="4"><%= PacketAnalyzer.source_ip_addr(analyze) %></td>
     </tr>
 
     <tr>
@@ -65,7 +65,7 @@
     </tr>
 
     <tr>
-      <td colspan="4"><%= analyze %></td>
+      <td colspan="4"><%= PacketAnalyzer.destination_ip_addr(analyze) %></td>
     </tr>
 
     <tr>
@@ -73,7 +73,7 @@
     </tr>
 
     <tr>
-      <td colspan="4"><%= analyze %></td>
+      <td colspan="4"><%= PacketAnalyzer.option(analyze) %></td>
     </tr>
 
     <tr>
@@ -81,7 +81,7 @@
     </tr>
 
     <tr>
-      <td colspan="4"><%= analyze %></td>
+      <td colspan="4"><%= PacketAnalyzer.data(analyze) %></td>
     </tr>
 
   </table>
