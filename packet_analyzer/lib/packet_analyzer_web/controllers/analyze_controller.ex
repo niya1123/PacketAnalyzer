@@ -1,4 +1,4 @@
-defmodule PacketAnalyzerWeb.PageController do
+defmodule PacketAnalyzerWeb.AnalyzeController do
   use PacketAnalyzerWeb, :controller
 
   def index(conn, _params) do

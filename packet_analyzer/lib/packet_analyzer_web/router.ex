@@ -17,6 +17,7 @@ defmodule PacketAnalyzerWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+    get "/analyze", AnalyzeController, :index
   end
 
   # Other scopes may use custom stacks.
