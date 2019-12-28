@@ -84,7 +84,9 @@
     </tr>
 
     <tr>
-      <td colspan="4"><%= PacketAnalyzer.data(analyze,n) %></td>
+      
+      <td colspan="4" id="data"><%= PacketAnalyzer.data(analyze,n) %></td>
+      
     </tr>
 
   </table>

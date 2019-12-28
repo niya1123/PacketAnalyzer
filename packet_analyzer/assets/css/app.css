@@ -11,7 +11,11 @@
 }
 
 td{
-    width: auto;
+    width: 100%;
     text-align: center;
-    white-space: nowrap;
+}
+
+#data{
+    max-width: 700px;
+    overflow: scroll; 
 }
