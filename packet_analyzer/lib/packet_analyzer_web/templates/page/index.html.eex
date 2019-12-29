@@ -6,9 +6,8 @@
 </form>
 
 <% analyze = PacketAnalyzer.analyze(@params["input_data"]) %>
-
 <%= if analyze=="Error" do %>
-  入力を確認してください
+入力を確認してください
 <% else %>
 <div class="result">
   <table border="1" width="100%">
@@ -70,12 +69,12 @@
     </tr>
 
     <tr>
-      <td colspan="4">オプション(32×n)</td>
+      <td colspan="4" id="data">オプション(32×n)</td>
     </tr>
 
     <tr>
       <% header = String.to_integer(header) %>
-      <% n = header - 4 %>
+      <% n = header - 5 %>
       <td colspan="4"><%= PacketAnalyzer.option(analyze,n) %></td>
     </tr>
 
