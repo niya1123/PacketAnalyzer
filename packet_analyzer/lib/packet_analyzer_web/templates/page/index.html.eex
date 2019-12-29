@@ -73,7 +73,7 @@
     </tr>
 
     <tr>
-      <% header = String.to_integer(header) %>
+      <% header = String.to_integer(header, 16) %>
       <% n = header - 5 %>
       <td colspan="4"><%= PacketAnalyzer.option(analyze,n) %></td>
     </tr>
