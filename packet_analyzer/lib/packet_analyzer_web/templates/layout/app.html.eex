@@ -11,7 +11,7 @@
     <header>
       <div class="pa-logo">
         <a href="/">
-            <img src="<%= Routes.static_path(@conn, "/images/packet_analyzer_icon.png") %>" alt="packet_analyzer_icon"/>
+            <img src="<%= Routes.static_path(@conn, "/images/packet_viewer.png") %>" alt="packet_analyzer_icon"/>
         </a>
       </div>
     </header>
