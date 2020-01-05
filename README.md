@@ -9,8 +9,6 @@ This project is guaranteed to work with the following versions.
 
 ` Docker version 19.03.5, build 633a0ea `
 
-How to start:
-
 ```bash
 git clone https://github.com/niya1123/PacketAnalyzer.git
 cd PacketAnalyzer
