@@ -4,8 +4,10 @@
   <input type="submit" value="analyze" class="analyze_button">
   </div>
 </form>
-
+<%# packet_analyzer.exの analyzeメソッドにinput_dataに入力されたデータを投げてる.%>
 <% analyze = PacketAnalyzer.analyze(@params["input_data"]) %>
+
+<%# analyzeから帰ってきた文字列がErrorならエラー表示を.そうでないのならテーブルを表示. %>
 <%= if analyze=="Error" do %>
 入力を確認してください
 <% else %>
@@ -73,6 +75,7 @@
     </tr>
 
     <tr>
+    <%# headerから長さを取得し, オプションの長さを決める. %>
       <% header = String.to_integer(header, 16) %>
       <% n = header - 5 %>
       <td colspan="4"><%= PacketAnalyzer.option(analyze,n) %></td>
