@@ -32,6 +32,9 @@ defmodule PacketAnalyzer do
 
   ## パラメータ
     - analyze: analyzeで返ってきた文字列.
+
+  String.firstで入力文字列の先頭を取得.
+  その後, case文を用いてバージョンの振り分け.
   """
   def version(analyze) do
     version = analyze
@@ -53,6 +56,8 @@ defmodule PacketAnalyzer do
 
   ## パラメータ
     - analyze: analyzeで返ってきた文字列.
+  
+  String.atを用いて引数の文字列のindexを指定してその場所の文字列を取得.
   """
   def header(analyze) do
     header = analyze
@@ -64,10 +69,14 @@ defmodule PacketAnalyzer do
 
   ## パラメータ
     - analyze: analyzeで返ってきた文字列.
+  
+  String.sliceを用いて, 引数のn番目のindexから範囲を指定して文字列をスライスする.
+  例えば入力文字列が"ABCDEFG"の場合, data |> String.slice(2,2)を実行すると, 
+  "CD"が取得される.
   """
   def service(analyze) do
     analyze
-    |> String.slice 2,2
+    |> String.slice(2,2)
   end
 
   @doc """
@@ -75,10 +84,11 @@ defmodule PacketAnalyzer do
 
   ## パラメータ
     - analyze: analyzeで返ってきた文字列.
+  String.sliceを用いて文字列をスライスしている.
   """
   def packet_length(analyze) do
     analyze
-    |> String.slice 4,4
+    |> String.slice(4,4)
   end
 
   @doc """
@@ -86,10 +96,11 @@ defmodule PacketAnalyzer do
 
   ## パラメータ
     - analyze: analyzeで返ってきた文字列.
+  String.sliceを用いて文字列をスライスしている.
   """
   def identifier(analyze) do
     analyze
-    |> String.slice 8,4
+    |> String.slice(8,4)
   end
 
   @doc """
@@ -97,10 +108,11 @@ defmodule PacketAnalyzer do
 
   ## パラメータ
     - analyze: analyzeで返ってきた文字列.
+  String.sliceを用いて文字列をスライスしている.
   """
   def flag(analyze) do
     analyze
-    |> String.slice 12,4
+    |> String.slice(12,4)
   end
 
   @doc """
@@ -108,10 +120,11 @@ defmodule PacketAnalyzer do
 
   ## パラメータ
     - analyze: analyzeで返ってきた文字列.
+  String.sliceを用いて文字列をスライスしている.
   """
   def ttl(analyze) do
     analyze
-    |> String.slice 16,2
+    |> String.slice(16,2)
   end
 
   @doc """
@@ -119,10 +132,11 @@ defmodule PacketAnalyzer do
 
   ## パラメータ
     - analyze: analyzeで返ってきた文字列.
+  String.sliceを用いて文字列をスライスしている.
   """
   def procotol(analyze) do
     analyze
-    |> String.slice 18,2
+    |> String.slice(18,2)
   end
 
   @doc """
@@ -130,10 +144,11 @@ defmodule PacketAnalyzer do
 
   ## パラメータ
     - analyze: analyzeで返ってきた文字列.
+  String.sliceを用いて文字列をスライスしている.
   """
   def header_check(analyze) do
     analyze
-    |> String.slice 20,4
+    |> String.slice(20,4)
   end
 
   @doc """
@@ -141,10 +156,12 @@ defmodule PacketAnalyzer do
 
   ## パラメータ
     - analyze: analyzeで返ってきた文字列.
+  String.sliceを用いて文字列をスライスした後, スライスされた文字列をさらにスライスし,
+  各々を16進数から10進数に変換し文字列として返還している.
   """
   def source_ip_addr(analyze) do
     ip = analyze
-    |> String.slice 24,8
+    |> String.slice(24,8)
 
     ip_1 = String.slice(ip,0,2) |> String.to_integer(16) |> Integer.to_string
     ip_2 = String.slice(ip,2,2) |> String.to_integer(16) |> Integer.to_string
@@ -159,10 +176,11 @@ defmodule PacketAnalyzer do
 
   ## パラメータ
     - analyze: analyzeで返ってきた文字列.
+  送信元アドレスと同様.
   """
   def destination_ip_addr(analyze) do
     ip = analyze
-    |> String.slice 32,8
+    |> String.slice(32,8)
 
     ip_1 = String.slice(ip,0,2) |> String.to_integer(16) |> Integer.to_string
     ip_2 = String.slice(ip,2,2) |> String.to_integer(16) |> Integer.to_string
@@ -177,10 +195,11 @@ defmodule PacketAnalyzer do
 
   ## パラメータ
     - analyze: analyzeで返ってきた文字列.
+  String.sliceを用いて文字列をスライスしている.
   """
   def option(analyze, n) do
     analyze
-    |> String.slice 40,8*n
+    |> String.slice(40,8*n)
   end
 
   @doc """
@@ -188,10 +207,11 @@ defmodule PacketAnalyzer do
 
   ## パラメータ
     - analyze: analyzeで返ってきた文字列.
+  String.sliceを用いて文字列をスライスしている.
   """
   def data(analyze, n) do
     analyze
-    |> String.slice (40+8*n)..-1
+    |> String.slice(40+8*n..-1)
   end
   
   

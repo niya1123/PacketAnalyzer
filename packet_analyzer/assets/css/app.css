@@ -2,19 +2,23 @@
 
 @import "./phoenix.css";
 
+/* logoの位置 */
 .pa-logo{
     text-align:center;
 }
 
+/* Analyzeボタンnの配置 */
 .analyze_button{
     text-align: right;
 }
 
+/* テーブルの中身のテキストの位置 */
 td{
     width: 100%;
     text-align: center;
 }
 
+/* データ部分が長い場合にテーブルからデータがはみ出るのでスクロールする形にして, 溢れないようにしている. */
 #data{
     max-width: 700px;
     overflow: scroll; 
