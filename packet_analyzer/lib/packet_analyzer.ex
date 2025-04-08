@@ -12,18 +12,15 @@ defmodule PacketAnalyzer do
 
   ## パラメータ
     - input_data: 入力文字列です.
-  
+
   ## try-rescue
     input_dataに16進数以外の文字列が与えられた場合にエラーが出るようにしています.
     ただし, 十分な長さがない16進数の文字列でも通ってしまう.
   """
   def analyze(input_data) do
-    try do
-      input_data
-      |> String.to_integer(16)
-      |> Integer.to_string(16)
-    rescue
-      e -> "Error"
+    case Integer.parse(input_data, 16) do
+      {value, _} -> Integer.to_string(value, 16)
+      :error -> "Error"
     end
   end
 
@@ -37,17 +34,14 @@ defmodule PacketAnalyzer do
   その後, case文を用いてバージョンの振り分け.
   """
   def version(analyze) do
-    version = analyze
-    |> String.first
-
-    case version do
-      "4" -> version<>" -> IP"
-      "5" -> version<>" -> ST"
-      "6" -> version<>" -> IPv6"
-      "7" -> version<>" -> TP/IX"
-      "8" -> version<>" -> PIP"
-      "9" -> version<>" -> TUBA"
-       _  -> "Not Match version"
+    case String.first(analyze) do
+      "4" -> "4 -> IP"
+      "5" -> "5 -> ST"
+      "6" -> "6 -> IPv6"
+      "7" -> "7 -> TP/IX"
+      "8" -> "8 -> PIP"
+      "9" -> "9 -> TUBA"
+      _ -> "Not Match version"
     end
   end
 
